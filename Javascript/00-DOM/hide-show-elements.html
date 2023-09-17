@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hide/Show Elements</title>
+
+    <!-- Define a CSS style for the 'hidden' class to hide elements -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        margin: 10px 0;
+      }
+      .toggleButton {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .toggleButton:hover {
+        background-color: #2980b9;
+      }
+      p {
+        font-size: 18px;
+      }
+      .hidden {
+        color: transparent;
+        text-shadow: 0 0 8px #000;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><button class="toggleButton">Toggle Item 1</button></li>
+      <li><button class="toggleButton">Toggle Item 2</button></li>
+      <li><button class="toggleButton">Toggle Item 3</button></li>
+    </ul>
+    <p id="item1">Item 1 is visible.</p>
+    <p id="item2">Item 2 is visible.</p>
+    <p id="item3">Item 3 is visible.</p>
+
+    <script>
+      // Select all elements with the class 'toggleButton'
+      const toggleButtons = document.querySelectorAll(".toggleButton");
+
+      // Select all paragraph elements whose IDs start with 'item'
+      const items = document.querySelectorAll('p[id^="item"]');
+
+      // Add click event listeners to each 'toggleButton'
+      toggleButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          // Toggle the 'hidden' class on the corresponding item
+          // This hides or shows the item by making its text transparent
+          items[index].classList.toggle("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

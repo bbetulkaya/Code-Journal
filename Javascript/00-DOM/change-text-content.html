@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Text Content</title>
+    <!-- Link to Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+    />
+
+    <style>
+      * {
+        outline: none;
+      }
+
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        text-align: center;
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+      #text {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      #newText {
+        padding: 10px;
+        font-size: 18px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        width: 80%;
+        max-width: 400px;
+      }
+      #newText:is(:hover, :focus) {
+        border: 2px solid #53de28;
+      }
+      #changeButton {
+        background-color: #53de28;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 4px;
+      }
+      #changeButton:hover {
+        background-color: #3ca21c;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Paragraph element with the id 'text' whose content will be dynamically changed -->
+    <p id="text">Original Text - Change me!</p>
+
+    <!-- Input field for entering new text -->
+    <input type="text" id="newText" />
+
+    <!-- Button that triggers the text content change -->
+    <button id="changeButton">Change Text</button>
+
+    <script>
+      // Get references to elements by their unique ids
+      const changeButton = document.getElementById("changeButton");
+      const text = document.getElementById("text");
+      const newText = document.getElementById("newText");
+
+      // Add a click event listener to the 'Change Text' button
+      changeButton.addEventListener("click", () => {
+        // When the button is clicked, update the text content of the paragraph
+        // with the value entered into the 'newText' input field
+        text.textContent = newText.value;
+      });
+    </script>
+  </body>
+</html>

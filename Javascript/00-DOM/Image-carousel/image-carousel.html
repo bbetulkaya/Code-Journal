@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        #image-container {
+            max-width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #nav-buttons {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <img src="img/image1.jpg" alt="Image 1" id="image" />
+    </div>
+    <div id="nav-buttons">
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+    </div>
+
+    <script>
+        const prevButton = document.getElementById("prevButton");
+        const nextButton = document.getElementById("nextButton");
+        const image = document.getElementById("image");
+        const imageArray = ["img/image1.jpg", "img/image2.jpg", "img/image3.jpg"];
+
+        let currentIndex = 0;
+
+        function showImage() {
+            image.src = imageArray[currentIndex];
+        }
+
+        prevButton.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
+            showImage();
+        });
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % imageArray.length;
+            showImage();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle a Class</title>
+
+    <!-- Define a CSS style for the 'active' class to change link appearance -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        margin: 10px 0;
+      }
+      a {
+        text-decoration: none;
+        color: #3498db;
+        font-weight: normal;
+        font-size: 18px;
+        transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+      }
+      a:hover {
+        color: #2980b9;
+        font-weight: bold;
+      }
+      .active {
+        color: blue;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <!-- Create a list of links with unique IDs -->
+      <li><a href="#" id="link1">Link 1</a></li>
+      <li><a href="#" id="link2">Link 2</a></li>
+      <li><a href="#" id="link3">Link 3</a></li>
+    </ul>
+
+    <script>
+      // Select all anchor elements
+      const links = document.querySelectorAll("a");
+
+      // Add click event listeners to each anchor element
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          // Prevent the default behavior of link clicks (e.g., navigating to a new page)
+          e.preventDefault();
+
+          // Toggle the 'active' class on the clicked link
+          // This changes its appearance as defined in the CSS
+          link.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

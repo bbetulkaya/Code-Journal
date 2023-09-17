@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Styling</title>
+
+    <!-- Define a CSS style for the 'highlighted' class -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+      #text {
+        font-size: 18px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-in-out;
+      }
+      #highlightBtn {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      #highlightBtn:hover {
+        background-color: #2980b9;
+      }
+      .highlighted {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Paragraph element with the id 'text' to be styled -->
+    <p id="text">This can be highlighted</p>
+
+    <!-- Button that triggers the style change -->
+    <button id="highlightBtn">Highlight</button>
+
+    <script>
+      // Get references to the button and paragraph elements
+      const highlightBtn = document.getElementById("highlightBtn");
+      const text = document.getElementById("text");
+
+      // Add a click event listener to the 'Highlight' button
+      highlightBtn.addEventListener("click", () => {
+        // Toggle the 'highlighted' class on the paragraph element
+        text.classList.toggle("highlighted");
+      });
+    </script>
+  </body>
+</html>
